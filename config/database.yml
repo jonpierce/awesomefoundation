@@ -1,0 +1,29 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: awesomefound
+  username: awesomefound
+  password: 
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: awesomefound_test
+  username: awesomefound
+  password: 
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: awesomefound
+  username: awesomefound
+  password: 
+  host: localhost
+  pool: 5
+  timeout: 5000
