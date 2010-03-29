@@ -1,0 +1,4 @@
+log/*.log
+tmp/**/*
+tmp/restart.txt
+config/database.yml
