@@ -46,7 +46,7 @@ end
 namespace :awesomefound do
   namespace :wordpress do
     task :configure do
-      run "cd #{current_path}; RAILS_ENV=#{rails_env} rake awesomefound:wordpress:install_theme"
+      run "cd #{current_path}; RAILS_ENV=#{rails_env} rake awesomefound:wordpress:configure"
     end
   end
 end
