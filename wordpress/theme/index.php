@@ -42,7 +42,7 @@
 
     <div id="main">
 
-    <?php if ( is_single() ) : ?>
+    <?php if ( is_home() || is_single() ) : ?>
 
       <?php include( TEMPLATEPATH . '/entries.php' ); ?>
       <?php include( TEMPLATEPATH . '/entries-navigation.php' ); ?>
