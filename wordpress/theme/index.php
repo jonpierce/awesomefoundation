@@ -40,7 +40,28 @@
 <div id="content">
   <div class="wrapper">
 
-    <%= yield %>
+    <div id="main">
+
+    <?php include( TEMPLATEPATH . '/entries.php' ); ?>
+    <?php include( TEMPLATEPATH . '/entries-navigation.php' ); ?>
+
+    </div>
+
+    <div id="sidebar">
+    <ul>
+    <?php if ( !function_exists('dynamic_sidebar')
+            || !dynamic_sidebar() ) : ?>
+    <?php endif; ?>
+    </ul>
+    <ul>
+    	<li><h2>Archives</h2>
+    		<ul>
+    		<?php wp_get_archives('type=monthly'); ?>
+    		</ul>
+    	</li>
+    	<?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
+    </ul>
+    </div>
 
   </div>
 </div>

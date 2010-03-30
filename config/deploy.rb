@@ -18,6 +18,8 @@ role :db, server_name, :primary => true
 
 set :keep_releases, 3
 
+set :rails_env, "production"
+
 namespace :deploy do
   task :start do; end
   task :stop do; end
@@ -40,6 +42,17 @@ namespace :deploy do
     # end
   end
 end
+
+namespace :awesomefound do
+  namespace :wordpress do
+    task :configure do
+      run "cd #{current_path}; RAILS_ENV=#{rails_env} rake awesomefound:wordpress:install_theme"
+    end
+  end
+end
+
+after "deploy", "awesomefound:wordpress:configure"
+after "deploy:migrations", "awesomefound:wordpress:configure"
 
 before "deploy", "deploy:web:disable"
 after "deploy", "deploy:web:enable"
