@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
       :message => "^Email is invalid",
       :unless => proc { |user| user.email.blank? }
     })
+    config.merge_validates_uniqueness_of_email_field_options({
+      :unless => proc { |user| user.email.blank? }
+    })
     config.merge_validates_length_of_password_field_options({
       :unless => proc { |user| user.password.blank? }
     })
