@@ -1,0 +1,18 @@
+<div id="main">
+
+  <%= show_flash %>
+  <%= error_messages @session %>
+
+  <% form_for @session do |f| %>
+
+  <%= f.label :login %>
+  <%= f.text_field :login %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Sign in" %>
+
+  <% end %>
+
+</div>

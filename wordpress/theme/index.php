@@ -18,7 +18,7 @@
       <li><a href="/faq/" title="FAQ">FAQ</a></li>
       <li><a href="/contact/" title="Contact">Contact</a></li>
       <li><a href="/chapters/" title="Chapters">Chapters</a></li>
-      <li><a href="/fellows/" title="Fellows">Fellows</a></li>
+      <li><a href="/grants/" title="Grants">Grants</a></li>
       <li><a href="/calendar/" title="Calendar">Calendar</a></li>
       <li><a href="/blog/" title="Blog">Blog</a></li>
     </ul>
@@ -53,22 +53,21 @@
 
         <?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
         <?php /* If this is a category archive */ if (is_category()) { ?>
-        	<h2 class="pagetitle">Archive for category &#8216;<?php single_cat_title(); ?>&#8217;</h2>
+        	<h2>Archive for <?php single_cat_title(); ?></h2>
         <?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-        	<h2 class="pagetitle">Archive for tag &#8216;<?php single_tag_title(); ?>&#8217;</h2>
+        	<h2>Archive for <?php single_tag_title(); ?></h2>
         <?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-        	<h2 class="pagetitle">Archive for <?php the_time('F jS, Y'); ?></h2>
+        	<h2>Archive for <?php the_time('F jS, Y'); ?></h2>
         <?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-        	<h2 class="pagetitle">Archive for <?php the_time('F, Y'); ?></h2>
+        	<h2>Archive for <?php the_time('F, Y'); ?></h2>
         <?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-        	<h2 class="pagetitle">Archive for <?php the_time('Y'); ?></h2>
+        	<h2>Archive for <?php the_time('Y'); ?></h2>
         <?php /* If this is an author archive */ } elseif (is_author()) { ?>
-        	<h2 class="pagetitle">Archive for author <?php get_query_var('author_name'); ?></h2>
+        	<h2>Archive for <?php get_query_var('author_name'); ?></h2>
         <?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-        	<h2 class="pagetitle">Archives</h2>
+        	<h2>Archive</h2>
         <?php } ?>
 
-        <?php include( TEMPLATEPATH . '/entries-navigation.php' ); ?>
         <?php include( TEMPLATEPATH . '/entries.php' ); ?>
         <?php include( TEMPLATEPATH . '/entries-navigation.php' ); ?>
 
@@ -89,11 +88,6 @@
 
     <div id="sidebar">
     <ul>
-    <?php if ( !function_exists('dynamic_sidebar')
-            || !dynamic_sidebar() ) : ?>
-    <?php endif; ?>
-    </ul>
-    <ul>
     	<li><h2>Archives</h2>
     		<ul>
     		<?php wp_get_archives('type=monthly'); ?>
@@ -110,7 +104,7 @@
 
 <div id="footer">
   <div class="wrapper">
-    <div>Designed and developed by <a href="http://jonpierce.com">Jon Pierce</a>, Boston trustee</div>
+    <div>Designed and developed by <a href="http://bit.ly/jonpierce-twitter">@jonpierce</a>, Boston trustee</div>
   </div>
 </div>
 

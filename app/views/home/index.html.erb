@@ -5,15 +5,15 @@
   <ul id="bullets">
     <li>
       <h2>Funding for your project</h2>
-      <p>Need some funding for your crazy brilliant idea? We award $1,000 grants every month. It couldn't be simpler. <a href="/apply/">Apply now</a>.</p>
+      <p>Need some funding for your crazy brilliant idea? We award <span class="highlight">$1,000 grants</span> every month. It couldn't be simpler. <a href="/apply/">Apply now</a>.</p>
     </li>
     <li>
       <h2>No strings attached</h2>
-      <p>Your idea is yours alone. We don't ask for a stake in it. We just want to help you make it happen. <a href="/faq/">Learn more</a>.</p>
+      <p>Your idea is yours alone. We don't want a stake in it. We just want to help you make it happen. <a href="/faq/">Learn more</a>.</p>
     </li>
     <li>
       <h2>It's spreading</h2>
-      <p>We started in Boston, but chapters are opening up around the world. Want to help start one in your city? <a href="/chapters/">See how</a>.</p>
+      <p>We started in <%= content_tag :span, link_to("Boston", "/chapters/boston"), :class => "highlight" %>, but chapters are sprouting up around the world, including <%= content_tag :span, link_to("Providence", "/chapters/providence"), :class => "highlight" %>, <%= content_tag :span, link_to("New York City", "/chapters/new-york-city"), :class => "highlight" %> and <%= content_tag :span, link_to("San Francisco", "/chapters/san-francisco"), :class => "highlight" %>. Want to help start one in your city? <a href="/chapters/">See how</a>.</p>
     </li>
   </ul>
 </div>

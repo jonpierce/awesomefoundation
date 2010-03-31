@@ -1,0 +1,44 @@
+<%= show_flash %>
+<%= error_messages @user %>
+
+<% form_for @user do |f| %>
+
+<%= f.label :login %>
+<%= f.text_field :login %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation, "Confirm password" %>
+<%= f.password_field :password_confirmation %>
+
+<%= f.label :first_name %>
+<%= f.text_field :first_name %>
+
+<%= f.label :last_name %>
+<%= f.text_field :last_name %>
+
+<%= f.label :email %>
+<%= f.text_field :email %>
+
+<%= f.label :bio %>
+<%= f.text_area :bio %>
+
+<%= f.label :url, "URL" %>
+<%= f.text_field :url %>
+
+<%= f.label :twitter_username %>
+<%= f.text_field :twitter_username %>
+
+<%= f.label :facebook_url, "Facebook URL" %>
+<%= f.text_field :facebook_url %>
+
+<%= f.label :linkedin_url, "LinkedIn URL" %>
+<%= f.text_field :linkedin_url %>
+
+<%= f.label :chapter %>
+<%= f.select :chapter_id, options_from_collection_for_select(@chapters, :id, :name, @user.chapter_id), { :include_blank => true } %>
+
+<%= f.submit "Save" %>
+
+<% end %>

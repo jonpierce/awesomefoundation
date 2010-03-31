@@ -13,5 +13,29 @@
   </ul>
 </li>
 
+<li id="twitter_widget" class="widget">
+  <h2><a href="http://twitter.com/awesomefound">Recent Tweets</a></h2>
+  <div id="tweets">
+  </div>
+</li>
+
 </ul>
 </div>
+
+<% content_for :footer do %>
+<script 
+ src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" 
+ type="text/javascript">
+</script>
+<script type="text/javascript" charset="utf-8">
+getTwitters('tweets', { 
+  id: 'awesomefound', 
+  count: 5, 
+  enableLinks: true, 
+  ignoreReplies: true, 
+  clearContents: true,
+  template: '%text% <a class="time" href="http://twitter.com/%user_screen_name%/statuses/%id%/">%time%</a>',
+  callback: function() { $("#twitter_widget").show() }
+});
+</script>
+<% end %>

@@ -1,0 +1,12 @@
+<div id="main">
+  
+  <h2>Current Chapters</h2>
+  <ul id="chapters">
+  <% @chapters.each do |chapter| %>
+  <li class="chapter">
+    <%= link_to chapter.name, chapter_path(chapter) %>
+  </li>
+  <% end %>
+  </ul>
+
+</div>

@@ -18,7 +18,7 @@
       <li><a href="/faq/" title="FAQ">FAQ</a></li>
       <li><a href="/contact/" title="Contact">Contact</a></li>
       <li><a href="/chapters/" title="Chapters">Chapters</a></li>
-      <li><a href="/fellows/" title="Fellows">Fellows</a></li>
+      <li><a href="/grants/" title="Grants">Grants</a></li>
       <li><a href="/calendar/" title="Calendar">Calendar</a></li>
       <li><a href="/blog/" title="Blog">Blog</a></li>
     </ul>
@@ -49,10 +49,23 @@
 
 <div id="footer">
   <div class="wrapper">
-    <div>Designed and developed by <a href="http://jonpierce.com">Jon Pierce</a>, Boston trustee</div>
+    <div>Designed and developed by <a href="http://bit.ly/jonpierce-twitter">@jonpierce</a>, Boston trustee</div>
   </div>
 </div>
 
 <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<%= yield :footer %>
+<% if Rails.env.production? %>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9594800-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+<% end %>
 </body>
 </html>

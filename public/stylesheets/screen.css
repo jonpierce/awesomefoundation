@@ -4,7 +4,7 @@ body {
   border-top: 1px solid #181818;
   margin: 0;
   padding: 0;
-  background: #FEF4F9 url(images/gradient.png) repeat-x;
+  background: #FEF4F9 url(/images/gradient.png) repeat-x;
   font-family: 'Helvetica Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 62.5%; /* sets base font size to 10 pt */
 }
@@ -98,6 +98,7 @@ a {
   margin-right: 30px;
   width: 600px;
   font-size: 1.4em;
+  min-height: 500px;
 }
 
 /** SIDEBAR **/
@@ -123,6 +124,82 @@ a {
   color: #999;
   font-size: 0.8em;
   text-decoration: none;
+}
+
+/** WIDGETS **/
+
+#twitter_widget {
+  display: none; /* will be shown by JS callback */
+}
+
+#twitter_widget #tweets .time {
+  color: #999;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+#twitter_widget #tweets .time:hover {
+  text-decoration: underline;
+}
+
+/** FOOTER **/
+
+#footer {
+  margin: 30px 0px;
+}
+
+/** FLASH **/
+
+.flash, .errors {
+  margin-bottom: 20px;
+  color: #F33486;
+  background-color: #FDDFEC;
+  padding: 15px;
+  width: 100%;
+}
+
+/** HIGHLIGHT **/
+
+.highlight {
+  color: #F33486;
+  background-color: #FDDFEC;
+  padding: 1px;
+}
+.highlight a {
+  text-decoration: none;
+}
+.highlight a:hover {
+  text-decoration: underline;
+}
+
+/** FORMS **/
+
+form ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+form ul li {
+  margin-bottom: 10px;
+}
+form ul li label {
+  margin-bottom: 5px;
+}
+form ul li label, form ul li .hint {
+  display: block;
+}
+form ul li label, form ul li input, form ul li textarea {
+  font-size: 1.2em;
+}
+form ul li.input input, form ul li.input select, form ul li.input textarea {  
+/*  width: 500px;*/
+}
+form ul li .hint {
+  font-size: 0.8em;
+}
+
+form ul li.button {
+  margin-top: 20px;
 }
 
 /** HOME **/
@@ -171,7 +248,7 @@ a {
 /** BLOG **/
 
 .post {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .post h2 {
   margin-bottom: 5px;
@@ -192,7 +269,7 @@ small.date {
 	display: block;
 	text-align: center;
 	margin-top: 10px;
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 .navigation .older {
   float: left;

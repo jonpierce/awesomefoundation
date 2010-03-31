@@ -33,6 +33,20 @@ ActionController::Routing::Routes.draw do |map|
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
   map.root :controller => "home"
+  map.with_options :controller => "home" do |home|
+    ["apply", "about", "faq", "contact", "calendar", "grants"].each do |page|
+      home.send(page.to_sym, page, :action => page)
+    end
+  end
+  map.resources :users, :sessions, :chapters, :submissions
+
+  map.with_options :controller => "sessions" do |sessions|
+    sessions.login "login", :action => "new"
+    sessions.logout "logout", :action => "destroy"
+  end
+
+  # redirects for legacy urls
+  map.connect "controls/whois", :controller => "home", :action => "whois"
 
   # See how all your routes lay out with "rake routes"
 
