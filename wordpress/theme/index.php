@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>The Awesome Foundation</title>
+<title><?php if ( is_home() ) : echo "Blog - "; else : wp_title(" - ", true, "right"); endif; ?>The Awesome Foundation</title>
 <link rel="shortcut icon" href="/images/favicon.ico">
 <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen" />
-<!-- <link rel="alternate" type="application/rss+xml" title="The Awesome Foundation Feed" href="/feed/" />  -->
+<link rel="alternate" type="application/rss+xml" title="The Awesome Foundation Feed" href="/blog/feed/" /> 
 </head>
 <body>
 
@@ -109,5 +109,15 @@
 </div>
 
 <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9594800-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
 </body>
 </html>
