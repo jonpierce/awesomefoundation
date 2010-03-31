@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   
-  before_filter :require_admin, :except => :show
+  before_filter :require_admin, :except => [:index, :show]
 
   def index
     @chapters = Chapter.all(:order => "name asc")

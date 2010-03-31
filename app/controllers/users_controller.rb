@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
   
   def update
+    params[:user][:login] = @user.login if params[:user][:login].blank?
     if @user.update_attributes(params[:user])
       redirect_to users_path
     else

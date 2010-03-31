@@ -1,18 +1,26 @@
 <div id="main">
 
-  <%= show_flash %>
-  <%= error_messages @session %>
+<%= show_flash %>
+<%= error_messages @session %>
 
-  <% form_for @session do |f| %>
+<% form_for @session do |f| %>
+<ul>
 
-  <%= f.label :login %>
-  <%= f.text_field :login %>
+<li class="input">
+<%= f.label :login %>
+<%= f.text_field :login %>
+</li>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+<li class="input">
+<%= f.label :password %>
+<%= f.password_field :password %>
+</li>
 
-  <%= f.submit "Sign in" %>
+<li class="button">
+<%= f.submit "Sign in" %>
+</li>
 
-  <% end %>
+</ul>
+<% end %>
 
 </div>

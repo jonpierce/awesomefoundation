@@ -2,43 +2,89 @@
 <%= error_messages @user %>
 
 <% form_for @user do |f| %>
+<ul>
 
+<li class="input">
 <%= f.label :login %>
 <%= f.text_field :login %>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :password %>
 <%= f.password_field :password %>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :password_confirmation, "Confirm password" %>
 <%= f.password_field :password_confirmation %>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :first_name %>
 <%= f.text_field :first_name %>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :last_name %>
 <%= f.text_field :last_name %>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :email %>
 <%= f.text_field :email %>
+<span class="hint">(optional)</span>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :bio %>
 <%= f.text_area :bio %>
+<span class="hint">(optional)</span>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :url, "URL" %>
 <%= f.text_field :url %>
+<span class="hint">(optional)</span>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :twitter_username %>
 <%= f.text_field :twitter_username %>
+<span class="hint">No @ sign (e.g. awesomefound) (optional)</span>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :facebook_url, "Facebook URL" %>
 <%= f.text_field :facebook_url %>
+<span class="hint">(optional)</span>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :linkedin_url, "LinkedIn URL" %>
 <%= f.text_field :linkedin_url %>
+<span class="hint">(optional)</span>
+</li>
 
+<ul>
+<li class="input">
 <%= f.label :chapter %>
 <%= f.select :chapter_id, options_from_collection_for_select(@chapters, :id, :name, @user.chapter_id), { :include_blank => true } %>
+</li>
 
+<ul>
+<li class="button">
 <%= f.submit "Save" %>
+</li>
 
+</ul>
 <% end %>

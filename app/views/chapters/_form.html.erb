@@ -1,11 +1,19 @@
 <% form_for @chapter do |f| %>
+<ul>
 
+<li class="input">
 <%= f.label :name %>
 <%= f.text_field :name %>
+</li>
 
+<li class="input">
 <%= f.label :slug %>
 <%= f.text_field :slug %>
+</li>
 
+<li class="button">
 <%= f.submit "Save" %>
+</li>
 
+</ul>
 <% end %>

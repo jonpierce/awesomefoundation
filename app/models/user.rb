@@ -40,6 +40,12 @@ class User < ActiveRecord::Base
   [:first_name, :last_name].each do |f|
     validates_length_of f, :maximum => 75, :allow_nil => true
   end
+  validates_length_of :bio, :maximum => 300, :allow_blank => true
+  validates_length_of :twitter_username, :maximum => 15, :allow_blank => true
+  validates_format_of :twitter_username, :with => /^[^@].+$/, :message => "^Twitter username is invalid", :allow_blank => true
+  validates_url_format_of :url, :message => "^URL is invalid", :allow_blank => true
+  validates_url_format_of :facebook_url, :message => "^Facebook URL is invalid", :allow_blank => true
+  validates_url_format_of :linkedin_url, :message => "^LinkedIn URL is invalid", :allow_blank => true
 
   def name
     [first_name, last_name].map(&:to_s).join(" ").strip
