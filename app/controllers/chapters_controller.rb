@@ -8,6 +8,7 @@ class ChaptersController < ApplicationController
   
   def show
     @chapter = Chapter.find_by_slug(params[:id]) or raise ActiveRecord::RecordNotFound
+    @trustees = @chapter.trustees.all(:order => "users.first_name asc")
   end
   
   def new

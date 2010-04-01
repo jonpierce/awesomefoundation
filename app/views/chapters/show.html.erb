@@ -1,5 +1,50 @@
 <% content_for :title, h(@chapter.name) %>
 
 <div id="main">
+  
+  <h2><%=h @chapter.name %> Trustees</h2>
+  <ul id="trustees">
+  <% @trustees.each do |trustee| %>
+  <li class="trustee">
+    <%= trustee.url? ? link_to(content_tag(:span, h(trustee.name), :class => "name"), trustee.url) : content_tag(:span, h(trustee.name), :class => "name") %>
+    <span class="links">
+      <% if trustee.twitter_username? %>
+        <%= link_to image_tag("icons/twitter.png", :title => "Twitter"), "http://twitter.com/#{trustee.twitter_username}" %>
+      <% end %>
+      <% if trustee.facebook_url? %>
+        <%= link_to image_tag("icons/facebook.png", :title => "Facebook"), trustee.facebook_url %>
+      <% end %>
+      <% if trustee.linkedin_url? %>
+        <%= link_to image_tag("icons/linkedin.png", :title => "LinkedIn"), trustee.linkedin_url %>
+      <% end %>
+    </span>
+  </li>
+  <% end %>
+  </ul>  
 
 </div>
+
+<% content_for :footer do %>
+<%= javascript_include_tag "grayscale" %>
+<script>
+$(document).ready(function() {
+  $("#trustees li").hover(
+    function() {
+      $(this).find(".links").show();
+    },
+    function() {
+      $(this).find(".links").hide();
+    }
+  )
+  grayscale( $("#trustees li .links img") );
+  $("#trustees li .links img").hover(
+    function() {
+      grayscale.reset( $(this) );
+    },
+    function() {
+      grayscale( $(this) );
+    }    
+  )
+})
+</script>
+<% end %>

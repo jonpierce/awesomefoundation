@@ -18,7 +18,7 @@
       <li><a href="/faq/" title="FAQ">FAQ</a></li>
       <li><a href="/contact/" title="Contact">Contact</a></li>
       <li><a href="/chapters/" title="Chapters">Chapters</a></li>
-      <li><a href="/grants/" title="Grants">Grants</a></li>
+      <!-- <li><a href="/grants/" title="Grants">Grants</a></li> -->
       <li><a href="/calendar/" title="Calendar">Calendar</a></li>
       <li><a href="/blog/" title="Blog">Blog</a></li>
     </ul>
