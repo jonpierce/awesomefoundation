@@ -264,6 +264,13 @@ small.date {
   -webkit-border-radius: 18px;
   border-radius: 18px;
 }
+a.comments_permalink {
+  margin-left: 10px;
+  font-size: 0.8em;
+}
+#disqus_thread {
+  margin-top: 30px;
+}
 
 .navigation {
 	display: block;
