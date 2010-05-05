@@ -89,3 +89,18 @@ task :copy_secrets do
   run "cp #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
 end
 after "deploy:update_code", :copy_secrets
+
+# database
+
+task :dump_production_database, :roles => :db do
+  require "yaml"
+  database_yaml = capture("cat #{current_path}/config/database.yml")
+  config = YAML::load(database_yaml)["production"]
+  filename = "#{config['database']}.#{Time.now.strftime '%Y%m%d%H%M%S'}.sql.gz"
+  tmp_path = "/tmp/#{filename}"
+  run "mysqldump -h #{config['host']} -u #{config['username']} -p #{config['database']} | gzip > #{tmp_path}" do |channel, stream, out|
+    channel.send_data "#{config['password']}\n" if out =~ /^Enter password:/
+  end
+  get tmp_path, filename
+  run "rm #{tmp_path}"
+end
