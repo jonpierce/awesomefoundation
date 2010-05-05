@@ -1,5 +1,53 @@
 <% content_for :title, "Submissions" %>
-
+<% content_for :header do %>
+<%= stylesheet_link_tag "tipsy" %>
+<%= stylesheet_link_tag "/facebox/facebox" %>
+<% end %>
+<% content_for :footer do %>
+<%= javascript_include_tag "jquery.tipsy" %>
+<%= javascript_include_tag "/facebox/facebox" %>
+<script>
+$("#submissions_filter select, #submissions_filter input").change(function() { $(this).parents("form").submit() })
+$(".submission .name a").tipsy({ fade: true, gravity: "w" }).click(function() {
+  var contact_info = $(this).parents(".submission").find(".contact_info").html()
+  $.facebox(contact_info)
+})
+</script>
+<% end %>
 <div id="main">
   
+  <% form_tag request.path, :id => "submissions_filter", :method => :get do %>
+    Submissions for
+    <%= select_tag :period, options_for_select(@period_options, @period) %>
+    <%= select_tag :chapter_id, options_for_select([["- Any -", ""]]) + options_from_collection_for_select(@chapters, :id, :name, params[:chapter_id].to_i) %>
+    <%= check_box_tag :exclude_unspecified, "1", params[:exclude_unspecified] %>
+    <%= label_tag :exclude_unspecified, "Exclude unspecified?" %>
+    <%= link_to "Export CSV", submissions_path(params.merge(:format => :csv)), :id => "export_csv" %>
+  <% end %>
+  <div class="submissions_summary">
+    <span>Displaying submissions <b><%= @submissions.offset + 1 %> - <%= @submissions.offset + @submissions.length %></b> of <b><%= @submissions.total_entries %></b></span>
+    <%= will_paginate @submissions, :previous_label => "Prev", :next_label => "Next", :inner_window => 2, :outer_window => 0 %>
+  </div>
+  
+  <% @submissions.each do |submission| %>
+  <div class="submission">
+    <h3 class="title"><%= submission.url? ? link_to(submission.name, submission.url) : h(submission.name) %></h3>
+    <span class="chapter"><%= submission.chapter.name rescue "Unspecified" %></span>
+    <div class="description"><%= simple_format(submission.description) %></div>
+    <small class="name"><%= link_to submission.name, "#", :title => "View contact info for #{submission.name}" %></small>
+    <small class="date"><%=h submission.created_at.strftime("%B %d, %Y at %I:%M%p") %></small>
+    <div class="contact_info">
+      <div class="email"><h3>Email</h3><p><%= link_to submission.email, "mailto:#{submission.email}" %></p></div>
+      <div class="phone"><h3>Phone</h3><p><%=h submission.phone %></p></div>
+    </div>
+  </div>
+  <% end %>
+  
+  <% if WillPaginate::ViewHelpers.total_pages_for_collection(@submissions) > 1 %>
+  <div class="submissions_summary">
+    <span>Displaying submissions <b><%= @submissions.offset + 1 %> - <%= @submissions.offset + @submissions.length %></b> of <b><%= @submissions.total_entries %></b></span>
+    <%= will_paginate @submissions, :previous_label => "Prev", :next_label => "Next", :inner_window => 2, :outer_window => 0 %>
+  </div>
+  <% end %>
+
 </div>

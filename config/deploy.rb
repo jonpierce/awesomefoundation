@@ -71,3 +71,21 @@ namespace :apache do
     run "#{sudo} apache2ctl graceful"
   end
 end
+
+# configuration
+
+task :setup_secrets do
+  username = Capistrano::CLI.ui.ask("Basic auth username: ")
+  password = Capistrano::CLI.password_prompt("Basic auth password: ")
+  config = { "username" => username, "password" => password }
+  run "mkdir -p #{shared_path}/config"
+  require "yaml"
+  put(config.to_yaml, "#{shared_path}/config/secrets.yml")
+end
+after "deploy:setup", :setup_secrets
+
+
+task :copy_secrets do
+  run "cp #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
+end
+after "deploy:update_code", :copy_secrets

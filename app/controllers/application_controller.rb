@@ -83,4 +83,10 @@ class ApplicationController < ActionController::Base
     today.strftime("%Y%m")
   end
 
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == SECRETS["username"] && password == SECRETS["password"]
+    end
+  end
+  
 end

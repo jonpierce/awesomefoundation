@@ -284,3 +284,52 @@ a.comments_permalink {
 .navigation .newer {
   float: right;
 }
+
+/** SUBMISSIONS **/
+
+.submission {
+  margin-bottom: 60px;
+}
+.submission h3 {
+  color: #F33486;
+  display: inline;
+}
+.submission .contact_info {
+  display: none;
+}
+.submission .chapter, .submission .date {
+  float: right;
+}
+.submission .description {
+  margin: 10px 0px 4px 0px;
+}
+.submission .name {
+  background-color: rgb(253, 223, 236);
+  padding: 5px 10px;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+}
+.submission .chapter {
+  font-weight: bold;
+  font-size: 0.8em;
+}
+.submission .name a {
+  text-decoration: none;
+}
+.submission .name a:hover {
+  text-decoration: underline;
+}
+#submissions_filter #export_csv {
+  float: right;
+}
+#submissions_filter, .submissions_summary {
+  margin-bottom: 20px;
+}
+.pagination {
+  display: inline;
+  float: right;
+}
+.pagination a, .pagination span {
+  padding: 2px 4px;
+}
