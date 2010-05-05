@@ -96,7 +96,7 @@ class SubmissionsController < ApplicationController
   end
   
   def new
-    @chapters = Chapter.all
+    @chapters = Chapter.all(:order => "name asc")
     @submission = Submission.new
   end
   

@@ -4,6 +4,12 @@
 <ul>
   
 <li class="input">
+<%= f.label :chapter_id, "Chapter" %>
+<%= f.select :chapter_id, options_from_collection_for_select(@chapters, :id, :name, @submission.chapter_id), { :include_blank => "- Any -" } %>
+<span class="hint">Want to apply to a specific chapter? Note that preference is often given to local submissions.</span> 
+</li>
+
+<li class="input">
 <%= f.label :name %>
 <%= f.text_field :name %>
 </li>
@@ -26,15 +32,9 @@
 </li>
 
 <li class="input">
-<%= f.label :description %>
+<%= f.label :description, "Tell us about yourself, your project, and how you'll pull it off" %>
 <%= f.text_area :description %>
-<span class="hint">Tell us about your project, why it's awesome, what makes you think you can pull it off, and how you would use the money. If you've done awesome stuff in the past, that wouldn't hurt either. Oh, and be pithy. (<span id="submission_description_counter">2500 characters remaining</span>)</span>
-</li>
-
-<li class="input">
-<%= f.label :chapter_id, "Chapter" %>
-<%= f.select :chapter_id, options_from_collection_for_select(@chapters, :id, :name, @submission.chapter_id), { :include_blank => "- No preference -" } %>
-<span class="hint">Want to apply to a specific chapter? Note that preference is often given to local submissions.</span> 
+<span class="hint">What makes your project awesome and you the right person to do it? If you've done awesome stuff in the past, it wouldn't hurt to mention it. But be pithy; we have short attention spans. (<span id="submission_description_counter">2500 characters remaining</span>)</span>
 </li>
 
 <li class="button">
