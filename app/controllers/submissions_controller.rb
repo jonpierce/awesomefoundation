@@ -3,7 +3,9 @@ class SubmissionsController < ApplicationController
   COLUMNS = [
     ["Chapter", proc { |row| row.chapter.name rescue "" }],
     ["Name", proc { |row| row.name }],
+    ["Title", proc { |row| row.title }],
     ["Description", proc { |row| row.description }],
+    ["Use", proc { |row| row.use }],
     ["URL", proc { |row| row.url }],
     ["Email", proc { |row| row.email }],
     ["Phone", proc { |row| row.phone }],
