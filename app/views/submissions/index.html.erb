@@ -31,7 +31,7 @@ $(".submission .name a").tipsy({ fade: true, gravity: "w" }).click(function() {
   
   <% @submissions.each do |submission| %>
   <div class="submission">
-    <h3 class="title"><%= submission.url? ? link_to(submission.name, submission.url) : h(submission.name) %></h3>
+    <h3 class="title"><%= submission.url? ? link_to(submission.title, submission.url) : h(submission.title) %></h3>
     <span class="chapter"><%= submission.chapter.name rescue "Unspecified" %></span>
     <div class="description"><%= simple_format(submission.description) %></div>
     <small class="name"><%= link_to submission.name, "#", :title => "View contact info for #{submission.name}" %></small>

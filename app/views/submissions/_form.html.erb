@@ -32,9 +32,21 @@
 </li>
 
 <li class="input">
-<%= f.label :description, "Tell us about yourself, your project, and how you'll pull it off" %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<span class="hint">Give your project a descriptive title. Don't sweat this too much. It's mostly to help us review the submissions.<br />(<span id="submission_title_counter">50 characters remaining</span>)</span></span>
+</li>
+
+<li class="input">
+<%= f.label :description, "Describe yourself, your project, and how you'll pull it off" %>
 <%= f.text_area :description %>
-<span class="hint">What makes your project awesome and you the right person to do it? If you've done awesome stuff in the past, it wouldn't hurt to mention it. But be pithy; we have short attention spans. (<span id="submission_description_counter">2500 characters remaining</span>)</span>
+<span class="hint">What makes your project awesome and you the right person to do it? If you've done awesome stuff in the past, it wouldn't hurt to mention it. But be pithy; we have short attention spans.<br />(<span id="submission_description_counter">2500 characters remaining</span>)</span>
+</li>
+
+<li class="input">
+<%= f.label :use, "How would you use the money?" %>
+<%= f.text_area :use %>
+<span class="hint">We won't rule out giving you money just for being awesome. But preference will be given to those who need it. So tell us how you'll use the money.<br />(<span id="submission_use_counter">250 characters remaining</span>)</span>
 </li>
 
 <li class="button">
@@ -48,8 +60,20 @@
 <%= javascript_include_tag "jquery.charcounter" %>
 <script>
 $(document).ready(function() {
+  $("#submission_title").charCounter(50, {
+  	container: "#submission_title_counter",
+  	format: "%1 characters remaining",
+  	pulse: false,
+  	delay: 100
+	})  
   $("#submission_description").charCounter(2500, {
   	container: "#submission_description_counter",
+  	format: "%1 characters remaining",
+  	pulse: false,
+  	delay: 100
+	})  
+  $("#submission_use").charCounter(500, {
+  	container: "#submission_use_counter",
   	format: "%1 characters remaining",
   	pulse: false,
   	delay: 100

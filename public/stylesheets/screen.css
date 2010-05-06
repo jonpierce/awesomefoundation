@@ -202,6 +202,9 @@ form ul li.button {
   margin-top: 20px;
 }
 
+#submission_use {
+  height: 150px;
+}
 /** HOME **/
 
 #tagline {

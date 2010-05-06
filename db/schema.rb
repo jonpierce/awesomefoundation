@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100331014123) do
+ActiveRecord::Schema.define(:version => 20100506000938) do
 
   create_table "chapters", :force => true do |t|
     t.string "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20100331014123) do
     t.text     "description"
     t.string   "url"
     t.integer  "chapter_id"
+    t.text     "use"
+    t.string   "title"
   end
 
   add_index "submissions", ["chapter_id"], :name => "index_submissions_on_chapter_id"
