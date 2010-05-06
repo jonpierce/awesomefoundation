@@ -44,6 +44,8 @@ ActionController::Routing::Routes.draw do |map|
     sessions.login "login", :action => "new"
     sessions.logout "logout", :action => "destroy"
   end
+  
+  map.connect "apply/:chapter", :controller => "home", :action => "apply"
 
   # redirects for legacy urls
   map.connect "controls/whois", :controller => "home", :action => "whois"

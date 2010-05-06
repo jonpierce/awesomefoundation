@@ -98,6 +98,7 @@ class SubmissionsController < ApplicationController
   def new
     @chapters = Chapter.all(:order => "name asc")
     @submission = Submission.new
+    @submission.chapter = Chapter.find_by_slug(params[:chapter]) if params[:chapter]
   end
   
   def create

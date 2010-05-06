@@ -4,7 +4,11 @@ class HomeController < ApplicationController
   end
   
   def apply
-    redirect_to new_submission_path
+    if params[:chapter].blank?
+      redirect_to new_submission_path
+    else
+      redirect_to new_submission_path(:chapter => params[:chapter])
+    end
   end
   
   def about
