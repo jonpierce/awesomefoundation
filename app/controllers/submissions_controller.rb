@@ -114,8 +114,4 @@ class SubmissionsController < ApplicationController
     end
   end
 
-  def extract_period(start_time)
-    # use default time zone.first(:order => "finalized_at asc") # TODO: just use the start time of the site, once known
-  end
-  
 end
